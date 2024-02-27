@@ -16,9 +16,15 @@ class TransactionFactory extends Factory
      */
     public function definition(): array
     {
+        $categories = [
+            'category1' => fake()->word(),
+                'category2' => fake()->word(),
+                'category3' => fake()->word(),
+        ];
         return [
-            'title' => fake()->word(),
-            'description' => fake()->sentence(4),
+            'title' => fake()->sentence(1),
+            'category' => json_encode($categories),
+            'description' => fake()->sentence(3),
             'date' => fake()->date(),
             'author' => fake()->name(),
             'transaction_type' => fake()->randomElement(['Expenses','Income']),

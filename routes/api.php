@@ -23,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/signup', [AuthController::class, 'createAccount']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/transactions', [TransactionController::class,'getAllTransactions'])->middleware('auth:sanctum');
+Route::post('/updateTransactions', [TransactionController::class,'update'])->middleware('auth:sanctum');
+Route::delete('/deleteTransaction/{id}', [TransactionController::class,'destroy'])->middleware('auth:sanctum');
