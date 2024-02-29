@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         \App\Models\Transaction::factory(10)->create();
+        \App\Models\PiggyBank::factory(2)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
