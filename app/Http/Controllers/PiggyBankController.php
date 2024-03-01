@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
 use App\Models\PiggyBank;
 use Illuminate\Http\Request;
 
@@ -39,6 +40,11 @@ class PiggyBankController extends Controller
     public function destroy($id)
 	{
 		$piggy = PiggyBank::find($id);
+        $account = Account::find(1);
+        $accountBalance = $account->balance;
+        $accountBalance += $piggy->saved_amount;
+        $account->balance = $accountBalance;
+        $account->save();
 		$piggy->delete();
 
 		return response()->json(['message' => 'piggy bank crashed successfully']);
