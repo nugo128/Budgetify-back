@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PiggyBankController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -34,3 +35,5 @@ Route::delete('/crashPiggy/{id}', [PiggyBankController::class,'destroy'])->middl
 
 Route::get('/account', [AccountController::class,'get'])->middleware('auth:sanctum');
 Route::post('/editAccount', [AccountController::class,'editAccount'])->middleware('auth:sanctum');
+Route::get('/subscription', [SubscriptionController::class,'get'])->middleware('auth:sanctum');
+Route::post('/editSubscription', [SubscriptionController::class,'edit'])->middleware('auth:sanctum');

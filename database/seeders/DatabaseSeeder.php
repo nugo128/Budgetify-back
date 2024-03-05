@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Transaction::factory(10)->create();
         \App\Models\PiggyBank::factory(2)->create();
         \App\Models\Account::factory(2)->create();
+        \App\Models\Subscription::factory(2)->create();
         
 
         // \App\Models\User::factory()->create([
