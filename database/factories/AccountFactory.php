@@ -19,7 +19,7 @@ class AccountFactory extends Factory
         return [
             'title' => fake()->randomElement(['Debit Card','Credit Card']),
             'balance' => fake()->randomNumber(4),
-            'currency' => fake()->randomElement(['USD($)','EUR(€)']),
+            'currency' => fake()->randomElement(['$','€']),
             'description'=> fake()->sentence(6),
         ];
     }

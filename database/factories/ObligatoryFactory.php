@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Subscription>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Obligatory>
  */
-class SubscriptionFactory extends Factory
+class ObligatoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,13 +16,8 @@ class SubscriptionFactory extends Factory
      */
     public function definition(): array
     {
-        $categories = [
-            'category1' => fake()->randomElement(['Apartment','Car', 'Fun']),
-                'category2' => fake()->randomElement(['Food','Home', 'Transport']),
-        ];
         return [
             'title' => fake()->sentence(1),
-            'category' => json_encode($categories),
             'description' => fake()->sentence(3),
             'amount'=>fake()->numberBetween(10,100),
             'date_from' => fake()->date(),

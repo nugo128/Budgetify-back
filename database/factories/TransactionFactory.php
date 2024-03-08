@@ -17,9 +17,8 @@ class TransactionFactory extends Factory
     public function definition(): array
     {
         $categories = [
-            'category1' => fake()->word(),
-                'category2' => fake()->word(),
-                'category3' => fake()->word(),
+            'category1' => fake()->randomElement(['Apartment','Car', 'Fun']),
+                'category2' => fake()->randomElement(['Food','Home', 'Transport']),
         ];
         return [
             'title' => fake()->sentence(1),
