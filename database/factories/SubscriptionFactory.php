@@ -25,7 +25,7 @@ class SubscriptionFactory extends Factory
             'category' => json_encode($categories),
             'description' => fake()->sentence(3),
             'amount'=>fake()->numberBetween(10,100),
-            'date_from' => fake()->date(),
+            'date_from' => fake()->dateTimeBetween('2023-01-01','now'),
             'date_to' => fake()->date(),
             
         ];

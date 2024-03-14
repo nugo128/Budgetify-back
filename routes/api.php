@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ObligatoryController;
 use App\Http\Controllers\PiggyBankController;
+use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Http\Request;
@@ -40,3 +41,5 @@ Route::get('/subscription', [SubscriptionController::class,'get'])->middleware('
 Route::post('/editSubscription', [SubscriptionController::class,'edit'])->middleware('auth:sanctum');
 Route::get('/obligatory', [ObligatoryController::class,'get'])->middleware('auth:sanctum');
 Route::post('/editObligatory', [ObligatoryController::class,'edit'])->middleware('auth:sanctum');
+
+Route::post('/statistics', [StatisticController::class, 'get'])->middleware('auth:sanctum');

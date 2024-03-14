@@ -24,7 +24,7 @@ class TransactionFactory extends Factory
             'title' => fake()->sentence(1),
             'category' => json_encode($categories),
             'description' => fake()->sentence(3),
-            'date' => fake()->date(),
+            'date' => fake()->dateTimeBetween('2023-01-01','now'),
             'author' => fake()->name(),
             'transaction_type' => fake()->randomElement(['Expenses','Income']),
             'amount' => fake()->randomNumber(3),
