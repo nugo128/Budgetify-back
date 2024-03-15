@@ -37,6 +37,16 @@ class TransactionController extends Controller
     
         return response()->json($transaction, 200);
     }
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $transactions = Transaction::where('title', 'like', "%$search%")->get();
+        foreach ($transactions as $transaction) {
+            $transaction->category = json_decode($transaction->category);
+        }
+
+        return response()->json(['transaction'=> $transactions], 200);
+    }
     public function destroy($id)
 	{
 		$transaction = Transaction::find($id);

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategotyController;
 use App\Http\Controllers\ObligatoryController;
 use App\Http\Controllers\PiggyBankController;
 use App\Http\Controllers\StatisticController;
@@ -30,6 +31,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/transactions', [TransactionController::class,'getAllTransactions'])->middleware('auth:sanctum');
 Route::post('/updateTransactions', [TransactionController::class,'update'])->middleware('auth:sanctum');
 Route::delete('/deleteTransaction/{id}', [TransactionController::class,'destroy'])->middleware('auth:sanctum');
+Route::post('/searchTransaction', [TransactionController::class, 'search'])->middleware('auth:sanctum');
 Route::get('/piggy', [PiggyBankController::class,'getPiggy'])->middleware('auth:sanctum');
 Route::post('/editPiggy', [PiggyBankController::class,'editPiggy'])->middleware('auth:sanctum');
 Route::post('/addMoney', [PiggyBankController::class,'addMoney'])->middleware('auth:sanctum');
@@ -43,3 +45,7 @@ Route::get('/obligatory', [ObligatoryController::class,'get'])->middleware('auth
 Route::post('/editObligatory', [ObligatoryController::class,'edit'])->middleware('auth:sanctum');
 
 Route::post('/statistics', [StatisticController::class, 'get'])->middleware('auth:sanctum');
+Route::post('/editCategory', [CategotyController::class, 'edit'])->middleware('auth:sanctum');
+Route::post('/addCategory', [CategotyController::class, 'create'])->middleware('auth:sanctum');
+Route::post('/search', [CategotyController::class, 'search'])->middleware('auth:sanctum');
+Route::get('/categories', [CategotyController::class,'get'])->middleware('auth:sanctum');
